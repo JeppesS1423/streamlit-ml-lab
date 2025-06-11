@@ -1,0 +1,28 @@
+{
+  "datasets": [
+    {
+      "filename": "boston.csv",
+      "description": "Boston Housing Dataset",
+      "target_variable": "MEDV",
+      "type": "regression"
+    },
+    {
+      "filename": "Iris.csv",
+      "description": "Iris Flower Classification Dataset",
+      "target_variable": "Species",
+      "type": "classification"
+    },
+    {
+      "filename": "sonar_data.csv",
+      "description": "Sonar Signal Classification Dataset",
+      "target_variable": "R",
+      "type": "classification"
+    },
+    {
+      "filename": "swedish_auto_insurance.csv",
+      "description": "Swedish Auto Insurance Dataset",
+      "target_variable": "Y",
+      "type": "regression"
+    }
+  ]
+}
