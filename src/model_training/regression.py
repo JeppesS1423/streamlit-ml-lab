@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.svm import SVR
 
-class RegressorTrainerInitParams:
+class RegressorTrainerInitParams(BaseModel):
     model: Literal[
         "linear_regression",
         "random_forest_regressor",
@@ -26,13 +26,13 @@ class RegressorTrainer:
     def _get_model(self, model: str, hyperparams: dict[str, Any] | None = None):
 
         models = {
-            "linear_regression": LinearRegression(**hyperparams),
-            "random_forest_regressor": RandomForestRegressor(**hyperparams),
-            "support_vector_regressor": SVR(**hyperparams),
-            "gradient_boosting_regressor": GradientBoostingRegressor(**hyperparams)
+            "linear_regression": LinearRegression,
+            "random_forest_regressor": RandomForestRegressor,
+            "support_vector_regressor": SVR,
+            "gradient_boosting_regressor": GradientBoostingRegressor
         }
 
-        return models[model]
+        return models[model](**hyperparams)
 
     def train(self, X_train, y_train, X_test=None, y_test=None) -> dict[str, float]:
         """Train the model and return training metrics"""
